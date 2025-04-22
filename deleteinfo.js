@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         quakedeleteinfo
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  替换quake网页个人中心里的敏感信息为******!
 // @author       360quake
 // @match        https://quake.360.net/quake/*
@@ -22,9 +22,10 @@
     for (let i = 0; i < spanTags.length; i++) {
       const spanTag = spanTags[i];
       const text = spanTag.textContent.trim();
+      const class_name = spanTag.className;
 
       // 判断<span>标签的值是否为邮箱地址或以+86开头的手机号
-      if (isEmail(text) || isPhoneNumber(text)) {
+      if (isEmail(text) || isPhoneNumber(text) || isusername(class_name)) {
         // 将包含邮箱地址或手机号的<span>标签的值修改为"***********"
         spanTag.textContent = "***********";
       }
@@ -42,6 +43,10 @@
   function isPhoneNumber(value) {
     const phoneNumberRegex = /^\+86\d{11}$/;
     return phoneNumberRegex.test(value);
+  }
+
+  function isusername(class_name) {
+    return class_name.localeCompare("username") == 0;
   }
 
   // 在页面加载时进行替换操作
