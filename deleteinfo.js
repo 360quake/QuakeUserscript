@@ -4,7 +4,8 @@
 // @version      0.1
 // @description  替换quake网页个人中心里的敏感信息为******!
 // @author       360quake
-// @match        https://quake.360.net/quake/
+// @match        https://quake.360.net/quake/*
+// @match        https://quake.qihoo.net/quake/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=360.net
 // @grant        none
 // @license      MIT
