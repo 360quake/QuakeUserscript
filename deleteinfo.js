@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         quakedeleteinfo
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  替换quake网页个人中心里的敏感信息为******!
 // @author       360quake
 // @match        https://quake.360.net/quake/*
@@ -16,7 +16,11 @@
 
   function replaceEmailAndPhoneNumbers() {
     // 获取所有的<span>标签
-    const spanTags = document.getElementsByTagName("span");
+    const infoWrapper = document.querySelector(".info-wrapper");
+    if (!infoWrapper) {
+      return;
+    }
+    const spanTags = infoWrapper.querySelectorAll("span"); // 获取所有的<span>标签
 
     // 遍历每个<span>标签
     for (let i = 0; i < spanTags.length; i++) {
