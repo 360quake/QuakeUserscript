@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         quakedeleteinfo
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  替换quake网页个人中心里的敏感信息为******!
 // @author       360quake
 // @match        https://quake.360.net/quake/
 // @match        https://quake.qihoo.net/quake/
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=360.net
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=quake.360.net
 // @grant        none
 // @license      MIT
 // ==/UserScript==
